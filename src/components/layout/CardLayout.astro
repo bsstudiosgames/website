@@ -1,0 +1,25 @@
+---
+import type { LayoutProps } from './Layout.astro';
+import type { CardProps } from '../common/Card';
+
+import Layout from './Layout.astro';
+import { Card } from '../common/Card';
+
+type Props = Omit<LayoutProps & CardProps, 'children'>;
+
+const { title, subtitle, actions } = Astro.props;
+---
+
+<Layout
+  title={title}
+  subtitle={subtitle}
+>
+  <div class='m-6'>
+    <Card
+      title={subtitle}
+      actions={actions}
+    >
+      <slot />
+    </Card>
+  </div>
+</Layout>

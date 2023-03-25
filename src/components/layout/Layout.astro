@@ -1,0 +1,55 @@
+---
+import type { DocumentProps } from './Document.astro';
+import Document from './Document.astro';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Navbar } from './Navbar';
+import { NavLink } from '../../types/nav';
+
+type Props = DocumentProps & {
+  subtitle?: string | undefined;
+};
+
+export type LayoutProps = Props;
+const title = Astro.props.title ?? 'BS Studios';
+const theme = Astro.props.theme ?? 'retro';
+const { subtitle } = Astro.props;
+const documentTitle = subtitle ? `${title} - ${subtitle}` : title;
+
+const links: NavLink[] = [
+  { href: '/about', text: 'About' },
+  { href: '/games', text: 'Games' },
+  {
+    href: 'https://github.com/bsstudiosgames',
+    text: 'Github',
+    img: {
+      src: '/github-logo.svg',
+      alt: '\u2612',
+    },
+  },
+];
+---
+
+<Document
+  title={documentTitle}
+  theme={theme}
+>
+  <div class='drawer'>
+    <input
+      id='navbar-drawer'
+      type='checkbox'
+      class='drawer-toggle'
+    />
+    <div class='drawer-content flex flex-col'>
+      <Header
+        title={title}
+        links={links}
+      />
+      <main class='flex-1 bg-base-200'>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <Navbar links={links} />
+  </div>
+</Document>
