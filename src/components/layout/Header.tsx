@@ -57,6 +57,7 @@ export const Header: Component<HeaderProps> = ({ title, links }) => (
               <li>
                 <a
                   {...a}
+                  href={href}
                   class='rounded-lg'
                 >
                   {img ? (
