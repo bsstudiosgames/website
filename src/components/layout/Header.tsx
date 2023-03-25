@@ -50,12 +50,8 @@ export const Header: Component<HeaderProps> = ({ title, links }) => (
         <For each={links}>
           {({ href, text, img }, i) => {
             const a = href.startsWith('/')
-              ? {
-                  rel: 'prefetch',
-                }
-              : {
-                  target: '_blank',
-                };
+              ? { rel: 'prefetch' }
+              : { target: '_blank' };
 
             return (
               <li>
