@@ -1,11 +1,12 @@
 ---
 import type { LayoutProps } from './Layout.astro';
-import type { CardProps } from '../common/Card';
+import type { CardProps } from '../common';
 
 import Layout from './Layout.astro';
-import { Card } from '../common/Card';
+import { Card } from '../common';
 
 type Props = Omit<LayoutProps & CardProps, 'children'>;
+export type CardLayoutProps = Props;
 
 const { title, subtitle, actions } = Astro.props;
 ---
