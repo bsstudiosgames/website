@@ -1,6 +1,6 @@
 # website
 
-![GitHub](https://img.shields.io/github/license/bsstudiosgames/website?style=for-the-badge)
+[![GitHub](https://img.shields.io/github/license/bsstudiosgames/website?style=for-the-badge)](https://github.com/bsstudiosgames/website/blob/main/LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/bsstudiosgames/website/node.js.yml?style=for-the-badge)](https://github.com/bsstudiosgames/website/actions/workflows/node.js.yml)
 
 [![Astro](https://img.shields.io/static/v1?label=&message=Astro&color=FF5D01&logo=astro&style=for-the-badge&logoColor=white)](https://astro.build/)
