@@ -1,12 +1,30 @@
 ---
-import CardLayout from "../components/layout/CardLayout.astro";
+import CardLayout from '../components/layout/CardLayout.astro';
 ---
 
-<CardLayout subtitle="About">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, unde
-        omnis recusandae officia molestias aut veritatis aperiam nihil, quaerat
-        exercitationem iste ipsam quasi facilis harum non quos labore dolore
-        veniam?
-    </p>
+<CardLayout subtitle='About'>
+  <section class='flex justify-between items-center'>
+    <div>
+      <h3 class='font-semibold text-lg'>Who are we?</h3>
+      <p class='max-w-prose'>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga nobis
+        laudantium esse rerum iure ex numquam tenetur officiis exercitationem
+        quia? Voluptate quas ab dicta non illo saepe vel amet eaque.
+      </p>
+    </div>
+    <div class='w-48 h-48'></div>
+  </section>
+
+  <section class='flex justify-between items-center'>
+    <div class='w-48 h-48'></div>
+    <div>
+      <h3 class='font-semibold text-lg'>What do we do?</h3>
+      <p class='max-w-prose'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+        reprehenderit ad ratione labore autem et fugit consequuntur laudantium
+        vel provident amet laboriosam excepturi perferendis facere quas quod,
+        totam explicabo impedit?
+      </p>
+    </div>
+  </section>
 </CardLayout>
