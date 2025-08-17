@@ -1,0 +1,29 @@
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24.x
+          cache: "npm"
+
+      - name: Install NPM packages
+        run: npm ci
+
+      - name: Build static pages
+        run: npm run build --if-present
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/

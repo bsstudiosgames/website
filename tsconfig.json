@@ -1,7 +1,5 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js"
-  }
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "files": [],
+  "references": [{ "path": "./tsconfig.astro.json" }]
 }
