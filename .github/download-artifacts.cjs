@@ -1,6 +1,3 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
-
 /**
  * @this {typeof import('@actions/github').context}
  * @param {import('@octokit/rest').Octokit} github
@@ -8,6 +5,9 @@ const path = require("node:path");
  * @param {string} params.outdir
  */
 async function downloadArtifacts(github, { outdir }) {
+  const fs = require("node:fs");
+  const path = require("node:path");
+
   // List artifacts from the triggering workflow
   const artifactResult = await github.rest.actions.listWorkflowRunArtifacts({
     owner: this.repo.owner,
@@ -29,14 +29,14 @@ async function downloadArtifacts(github, { outdir }) {
   });
 
   // Make target directory
-  if (!(await fs.exists(outdir))) {
-    await fs.mkdir(outdir);
+  if (!fs.existsSync(outdir)) {
+    fs.mkdirSync(outdir);
   }
 
   // Write artifact to target directory
   const filename = path.join(outdir, "dist.zip");
   const data = Buffer.from(downloadResult.data);
-  await fs.writeFile(filename, data);
+  fs.writeFileSync(filename, data);
 }
 
 module.exports = downloadArtifacts;
