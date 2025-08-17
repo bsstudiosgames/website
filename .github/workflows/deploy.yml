@@ -17,7 +17,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            await require("./download-artifacts.cjs").call(context, github, {
+            await require("./.github/download-artifacts.cjs").call(context, github, {
               outdir: "${{ runner.temp }}/artifacts",
             });
 
