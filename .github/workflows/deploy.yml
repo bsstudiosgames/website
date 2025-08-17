@@ -22,7 +22,7 @@ jobs:
             });
 
       - name: Unzip build artifacts
-        run: unzip dist.zip -d "${{ runner.temp }}/artifacts"
+        run: unzip "${{ runner.temp }}/artifacts/dist.zip" -d "${{ runner.temp }}/dist"
 
       - name: Setup AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
@@ -33,4 +33,4 @@ jobs:
 
       - name: Upload build artifacts to AWS S3
         run: |
-          aws s3 sync dist s3://${{ vars.AWS_S3_BUCKET_NAME }} --delete
+          aws s3 sync "${{ runner.temp }}/dist" "s3://${{ vars.AWS_S3_BUCKET_NAME }}" --delete
