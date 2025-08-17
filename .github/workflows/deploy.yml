@@ -1,6 +1,8 @@
+name: Deploy
+
 on:
   workflow_run:
-    workflows: [build.yml]
+    workflows: [Build]
     types: [completed]
 
 jobs:
